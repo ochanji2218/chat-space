@@ -1,21 +1,19 @@
 ### usersテーブル
 Column|Type|Options|
 |------|----|-------|
-add_column :name, :author, :references
 ### Association
   has_many :messageas
-  has_many :groups, through: :group_users
   has_many :group_users
+  has_many :groups, through: :group_users
 end
 
 ### messagesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|Column  |Type      |Options|
+|id      |integer   ||
+|body    |text      ||
+|image   |string    ||
+|user_id |references|null: false, foreign_key: true|
 |group_id|references|null: false, foreign_key: true|
-
-add_column :text, :author, :text
-add_column :image, :author, :string
 
 ### Association
   belongs_to : user
@@ -23,20 +21,20 @@ add_column :image, :author, :string
 end
 
 ## groupsテーブル
-|Column|Type|Options|
-|------|----|-------|
-add_column :name, :author, :references
+|Column    |Type   |Options|
+|id        |integer||
+|group_name|string |null: false, foreign_key: true|
 
 ### Association
   has_many :messages
-  has_many :users, through: :group_users
   has_many :group_users
+  has_many :users, through: :group_users
 end
 
 ## group_usersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|Column  |Type      |Options|
+|id      |integer   ||
+|user_id |references|null: false, foreign_key: true|
 |group_id|references|null: false, foreign_key: true|
 
 ### Association

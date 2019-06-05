@@ -14,8 +14,8 @@ end
 |user_id|references|null: false, foreign_key: true|
 |group_id|references|null: false, foreign_key: true|
 
-add_column :text, :author, :references
-add_column :image, :author, :references
+add_column :text, :author, :text
+add_column :image, :author, :string
 
 ### Association
   belongs_to : user

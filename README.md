@@ -5,7 +5,6 @@ Column|Type|Options|
   has_many :messageas
   has_many :group_users
   has_many :groups, through: :group_users
-end
 
 ### messagesテーブル
 |Column  |Type      |Options|
@@ -18,18 +17,16 @@ end
 ### Association
   belongs_to : user
   belongs_to : group
-end
 
 ## groupsテーブル
 |Column    |Type   |Options|
 |id        |integer||
-|group_name|string |null: false, foreign_key: true|
+|name　　　 |string ||
 
 ### Association
   has_many :messages
   has_many :group_users
   has_many :users, through: :group_users
-end
 
 ## group_usersテーブル
 |Column  |Type      |Options|
@@ -40,4 +37,3 @@ end
 ### Association
   belongs_to : user
   belongs_to : group
-end
